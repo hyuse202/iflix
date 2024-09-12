@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const Banner: React.FC = () => {
   return (
     <>
       {/* <video src={data?.videoUrl}></video> */}
       <video
-        className='
+        className="
             w-full 
             h-[40.25vw] 
             object-cover 
             brightness-[60%] 
             transition 
-            duration-500 '
+            duration-500 "
         autoPlay
         muted
         loop
-        src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
       ></video>
     </>
   );
