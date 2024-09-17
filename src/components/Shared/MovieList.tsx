@@ -28,7 +28,7 @@ export default function MovieList({
       <strong className="text-md md:text-xl lg:text-2xl font-semibold mb-4">
         {name}
       </strong>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="flex flex-wrap justify-around sm:justify-center gap-4">
         {media?.map((item, index) => {
           return <Cards key={index} defaultCard={defaultCard} item={item} />;
         })}

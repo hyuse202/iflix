@@ -7,7 +7,7 @@ const Banner: React.FC = () => {
       <video
         className="
             w-full 
-            h-[40.25vw] 
+            h-[38.25vw] 
             object-cover 
             brightness-[60%] 
             transition 

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-
+import { motion } from "framer-motion";
 import { Media } from "@/types/type";
 interface CardsProps {
   defaultCard?: boolean;
@@ -15,22 +15,22 @@ export default function Cards({
 
   return (
     <>
-      <div className="group bg-zinc-400 col-span relative h-[12vw] flex flex-row rounded">
+      <motion.div
+        whileHover={{ scale: 1.1, opacity: 0.8 }}
+        className=" col-span relative w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 flex flex-row rounded"
+      >
         <img
           src={image}
           alt="img"
           className=" 
         cursor-pointer
         object-cover
-        transition
+        
         
         shadow-xl
         rounded-md
-        group-hover:opacity-90
-        sm:group-hover:opacity-0
-        delay-300
         w-full
-        h-[12vw]"
+      "
         />
         <div
           className="
@@ -42,38 +42,28 @@ export default function Cards({
         z-10
         invisible
         sm:visible
-        delay-200
-        w-full
-        scale-0
-        group-hover:scale-100
-        group-hover:-translate-y-[2vw]
-        group-hover:translate-x-[1vw]
-        group-hover:opacity-100"
+        w-full"
         >
-          <img
+          {/* <img
             src={image}
             alt="Movie"
             draggable={false}
             className="
           cursor-pointer
           object-cover
-          transition
-          duration
           shadow-xl
           rounded-t-md
           w-full
           h-[12vw]
         "
-          />
-          <div
+          /> */}
+          {/* <div
             className="
           z-10
-          bg-zinc-800
           p-2
           lg:p-4
           absolute
           w-full
-          transition
           shadow-md
           rounded-b-md"
           >
@@ -83,9 +73,9 @@ export default function Cards({
                 <span className="">{`${rating * 10}% match`}</span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
