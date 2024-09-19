@@ -12,3 +12,5 @@ export const sections = [
     endpoint: "/tv/popular",
   },
 ];
+
+export const TMDB_URI = "https://api.themoviedb.org"

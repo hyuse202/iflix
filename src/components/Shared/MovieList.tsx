@@ -24,10 +24,10 @@ export default function MovieList({
   }, []);
 
   return (
-    <div className="px-4 mt-4 space-y-8">
-      <strong className="text-md md:text-xl lg:text-2xl font-semibold mb-4">
+    <div className="mt-4 py-4 space-y-8 flex flex-col items-center  px-4 md:px-12 lg:px-20">
+      <h1 className="uppercase text-2xl gap-2 font-semibold mb-4">
         {name}
-      </strong>
+      </h1>
       <div className="flex flex-wrap justify-around sm:justify-center gap-4">
         {media?.map((item, index) => {
           return <Cards key={index} defaultCard={defaultCard} item={item} />;

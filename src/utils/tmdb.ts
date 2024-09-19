@@ -3,7 +3,6 @@ import { Media } from "@/types/type";
 
 const apiKey = process.env.NEXT_PUBLIC_TMDB;
 const uri = "https://api.themoviedb.org/3";
-console.log(apiKey);
 export async function tmdb(param: string): Promise<Media[]> {
   const result = await axios.get(`${uri}${param}`, {
     headers: {
