@@ -12,7 +12,6 @@ export default function useMovie() {
                 'Accept': 'application/json'
               }
         })
-        console.log(data);
         return data;
     }
     return {

@@ -6,6 +6,7 @@ import logo from "@/assets/netflix_logo.png";
 import { useState, useEffect } from "react";
 import NavBarItems from "../Shared/NavBarItems";
 import { BsSearch, BsBell } from "react-icons/bs";
+import Link from "next/link";
 function Navbar(): React.ReactElement {
   const [isTop, setIsTop] = useState(true);
   useEffect(() => {
@@ -21,9 +22,13 @@ function Navbar(): React.ReactElement {
         isTop ? "" : "bg-black"
       )}
     >
-      <Image src={logo} width={150} height={150} alt="logo" />
+      <Link href ="/">
+        <Image src={logo} width={150} height={150} alt="logo" />
+      </Link>
       <div className="gap-7 flex flex-row ml-8 font-semibold mt-2">
-        <NavBarItems label="Home" />
+        <Link href ="/">
+          <NavBarItems label="Home" />
+        </Link>
         <NavBarItems label="Series" />
         <NavBarItems label="Films" />
         <NavBarItems label="My List" />
