@@ -33,7 +33,7 @@ export default async function page({ params }: Props) {
             >
               <img
                 className="h-full w-full rounded-lg object-cover shadow-lg"
-                src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156822-Jzo2ITWgm4kM.jpg"
+                src={`https://image.tmdb.org/t/p/w500` + info?.data.poster_path}
                 alt="Fairy Tail 100 Year Quest Poster"
                 sizes="(max-width: 768px) 112px, (max-width: 1024px) 144px, 192px"
               />
@@ -41,7 +41,7 @@ export default async function page({ params }: Props) {
           </div>
           <div className="pt-44">
             <p className="text-xs">
-              TV Show · Summer 2024 · PG-13 · Teens 13 or older
+              {info?.data.release_date} · {info.data.runtime}'
             </p>
             <h1 className="text-2xl font-bold leading-6 md:text-4xl md:leading-9 lg:text-5xl lg:leading-normal">
               {info?.data.title}
