@@ -32,7 +32,7 @@ export default function MovieList(): React.ReactElement {
         </h1>
         {
           loading ? (
-            <div>
+            <div className="flex flex-wrap gap-3">
               <LoadingSkeleton />
               <LoadingSkeleton />
               <LoadingSkeleton />
