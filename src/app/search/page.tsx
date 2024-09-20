@@ -3,18 +3,19 @@ import React, { useState, useEffect } from "react";
 import useMovie from "@/hooks/useMovie";
 import Cards from "@/components/Shared/Cards";
 import { Media } from "@/types/type";
+import LoadingSkeleton from "@/components/Shared/LoadingSkeleton";
 export default function SearchPage() {
   const [search, setSearch] = useState("");
   const [searchFilter, setSearchFilter] = useState<Media[]>([]);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { getSearch } = useMovie();
   useEffect(() => {
     if (search === "") return setSearchFilter([]);
     const delayDebounceFn = setTimeout(async () => {
-      // setLoading(true);
+      setLoading(true);
       const data = await getSearch(search);
       setSearchFilter(data);
-      // setLoading(false);
+      setLoading(false);
     }, 1000);
     return () => {
       clearTimeout(delayDebounceFn);
@@ -37,7 +38,17 @@ export default function SearchPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
         <div>
-          {searchFilter.length > 0 ? (
+          {
+          (searchFilter.length === 0 && search !== '') || loading ? (
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <LoadingSkeleton/>
+              <LoadingSkeleton/>
+              <LoadingSkeleton/>
+              <LoadingSkeleton/>
+              <LoadingSkeleton/>
+            </div>
+          ) :
+          searchFilter.length > 0 ? (
             <div className="flex flex-wrap justify-around sm:justify-center gap-4 mt-10">
               {searchFilter?.map((item: any, index: any) => {
                 return <Cards key={index} defaultCard={true} item={item} />;
