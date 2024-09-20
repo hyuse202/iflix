@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GiArchiveResearch } from "react-icons/gi";
+import { Media } from "@/types/type";
 
 export default function useMovie() {
     const TMDB_KEY = process.env.NEXT_PUBLIC_TMDB;
@@ -24,7 +24,20 @@ export default function useMovie() {
               }        
         })
         // console.log(data)
-        return data;
+        const films: Media[] = [];
+        data.data.results.map((item: any) => {
+          films.push({
+            id: item.id,
+            title: item.title || item.name,
+            overview: item.overview,
+            rating: item.vote_average,
+            banner: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+            poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+          });
+        });
+        // console.log(films)
+        return films;
+        // return data;
     }
     // async function getInitial(){
     //     const data = 
