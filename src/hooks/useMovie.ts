@@ -3,9 +3,13 @@ import { Media } from "@/types/type";
 
 export default function useMovie() {
     const TMDB_KEY = process.env.NEXT_PUBLIC_TMDB;
+    const TMDB_URI = 'https://api.themoviedb.org/3'
     let API = {
-        DETAIL: 'https://api.themoviedb.org/3/movie/',
-        SEARCH: 'https://api.themoviedb.org/3/search/movie?query='
+        DETAIL: TMDB_URI +  '/movie/',
+        SEARCH: TMDB_URI + '/search/movie?query=',
+        POPULAR: TMDB_URI + '/movie/popular',
+        TOP_RATED: TMDB_URI + '/movie/top_rated',
+        TRENDING: TMDB_URI + "/trending/all/day"
     }
     async function getDetail(id: number){
         const data = await axios.get(API.DETAIL + id + '?language=en-US',{
@@ -23,7 +27,6 @@ export default function useMovie() {
                 'Accept': 'application/json'
               }        
         })
-        // console.log(data)
         const films: Media[] = [];
         data.data.results.map((item: any) => {
           films.push({
@@ -35,16 +38,73 @@ export default function useMovie() {
             poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
           });
         });
-        // console.log(films)
         return films;
-        // return data;
     }
-    // async function getInitial(){
-    //     const data = 
-    // }
+    async function getTopRated(){
+        const data = await axios.get(API.TOP_RATED, {
+            headers: {
+                'Authorization': `Bearer ${TMDB_KEY}`,
+                'Accept': 'application/json'
+              }     
+        })
+        const films: Media[] = [];
+        data.data.results.map((item: any) => {
+          films.push({
+            id: item.id,
+            title: item.title || item.name,
+            overview: item.overview,
+            rating: item.vote_average,
+            banner: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+            poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+          });
+        });
+        return films;
+    }
+    async function getPopular(){
+        const data = await axios.get(API.POPULAR, {
+            headers: {
+                'Authorization': `Bearer ${TMDB_KEY}`,
+                'Accept': 'application/json'
+              }     
+        })
+        const films: Media[] = [];
+        data.data.results.map((item: any) => {
+          films.push({
+            id: item.id,
+            title: item.title || item.name,
+            overview: item.overview,
+            rating: item.vote_average,
+            banner: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+            poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+          });
+        });
+        return films;
+    }
+    async function getTrending(){
+        const data = await axios.get(API.TRENDING, {
+            headers: {
+                'Authorization': `Bearer ${TMDB_KEY}`,
+                'Accept': 'application/json'
+              }     
+        })
+        const films: Media[] = [];
+        data.data.results.map((item: any) => {
+          films.push({
+            id: item.id,
+            title: item.title || item.name,
+            overview: item.overview,
+            rating: item.vote_average,
+            banner: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+            poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+          });
+        });
+        return films;
+    }
     return {
-
         getDetail,
-        getSearch
+        getSearch,
+        getPopular,
+        getTopRated,
+        getTrending
     }
 }

@@ -13,7 +13,6 @@ export default function SearchPage() {
     const delayDebounceFn = setTimeout(async () => {
       // setLoading(true);
       const data = await getSearch(search);
-      console.log(data);
       setSearchFilter(data);
       // setLoading(false);
     }, 1000);
