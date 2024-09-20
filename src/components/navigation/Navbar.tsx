@@ -22,11 +22,11 @@ function Navbar(): React.ReactElement {
         isTop ? "" : "bg-black"
       )}
     >
-      <Link href ="/">
+      <Link href="/">
         <Image src={logo} width={150} height={150} alt="logo" />
       </Link>
       <div className="gap-7 flex flex-row ml-8 font-semibold mt-2">
-        <Link href ="/">
+        <Link href="/">
           <NavBarItems label="Home" />
         </Link>
         <NavBarItems label="Series" />
@@ -34,10 +34,12 @@ function Navbar(): React.ReactElement {
         <NavBarItems label="My List" />
         <NavBarItems label="Popular" />
       </div>
-      <div className="flex flex-row ml-auto gap-7 items-center font-semibold">
-        <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
-          <BsSearch />
-        </div>
+      <div className="flex flex-row ml-auto gap-7 items-center font-extrabold text-xl">
+        <Link href="/search">
+          <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
+            <BsSearch />
+          </div>
+        </Link>
         <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
           <BsBell />
         </div>
