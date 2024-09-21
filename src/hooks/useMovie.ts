@@ -4,7 +4,7 @@ import { Media } from "@/types/type";
 export default function useMovie() {
     const TMDB_KEY = process.env.NEXT_PUBLIC_TMDB;
     const TMDB_URI = 'https://api.themoviedb.org/3'
-    let API = {
+    const API = {
         DETAIL: TMDB_URI +  '/movie/',
         SEARCH: TMDB_URI + '/search/movie?query=',
         POPULAR: TMDB_URI + '/movie/popular',

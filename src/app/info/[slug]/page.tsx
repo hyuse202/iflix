@@ -68,7 +68,7 @@ export default async function page({ params }: Props) {
             <h2 className="mb-3 mt-2 border-l-[6px] border-emerald-500 pl-3 text-xl font-bold md:mb-4 md:text-2xl xl:mb-6">
               Recommendation
             </h2>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center">
             {rec?.map((item: any, index: any) => {
                 return <Cards key={index} defaultCard={true} item={item} />;
               })}

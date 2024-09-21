@@ -49,7 +49,7 @@ export default function SearchPage() {
             </div>
           ) :
           searchFilter.length > 0 ? (
-            <div className="flex flex-wrap justify-around sm:justify-center gap-4 mt-10">
+            <div className="flex flex-wrap justify-around sm:justify-center gap-3 mt-10">
               {searchFilter?.map((item: any, index: any) => {
                 return <Cards key={index} defaultCard={true} item={item} />;
               })}

@@ -19,7 +19,7 @@ export default function Cards({
     <>
       <motion.div
         whileHover={{ scale: 1.1, opacity: 0.8 }}
-        className=" col-span relative w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 flex flex-row rounded shadow-xl"
+        className=" col-span relative w-full sm:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6  flex flex-row rounded shadow-xl"
         onClick={() => {
           router.push(`/info/${id}`);
         }}
