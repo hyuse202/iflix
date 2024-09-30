@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Iflix - Watch free TV online",
-  description: "Iflix - Watch TV anywhere",
+  title: "Isou - Read novels free",
+  description: "Isou - Read novels free",
 };
 
 export default function RootLayout({
