@@ -3,13 +3,16 @@ import React from "react";
 type Props = {
   params: { slug: string };
 };
+
 import useMovie from "@/hooks/useMovie";
 import Cards from "@/components/Shared/Cards";
+import FavBtn from "@/components/Shared/FavBtn";
 export default async function page({ params }: Props) {
   const id: any = params.slug;
   const { getDetail, getRecommendation } = useMovie();
   const info: any = await getDetail(id);
   const rec: any = await getRecommendation(id);
+
   return (
     <>
       {/* <div className="bg-black min-h-screen"> */}
@@ -49,9 +52,7 @@ export default async function page({ params }: Props) {
             <h1 className="text-2xl font-bold leading-6 md:text-4xl md:leading-9 lg:text-5xl lg:leading-normal">
               {info?.data.title}
             </h1>
-            <p className="mb-0.5 leading-5 md:leading-normal lg:mb-1">
-              Currently Airing
-            </p>
+            <FavBtn id = {id} poster_path={info.data.poster_path}/>
           </div>
           </div>
           <div className="grid grid-cols-1 gap-y-6 md:gap-y-8">

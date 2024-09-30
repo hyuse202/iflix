@@ -8,9 +8,6 @@ export const authOptions = {
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET ?? "",
     }),
   ],
-  pages: {
-    signIn: "/signin",
-  },
 };
 
 export const handler = NextAuth(authOptions);

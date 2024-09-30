@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import NavBarItems from "../Shared/NavBarItems";
 import { BsSearch, BsBell } from "react-icons/bs";
 import Link from "next/link";
+import SigninButton from "../Shared/Signin";
 function Navbar(): React.ReactElement {
   const [isTop, setIsTop] = useState(true);
   useEffect(() => {
@@ -35,6 +36,7 @@ function Navbar(): React.ReactElement {
         <NavBarItems label="Popular" />
       </div>
       <div className="flex flex-row ml-auto gap-7 items-center font-extrabold text-xl">
+        <SigninButton />
         <Link href="/search">
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
             <BsSearch />

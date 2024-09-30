@@ -119,7 +119,6 @@ export default function useMovie() {
             poster: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
           });
         });
-        console.log(films);
         return films;
     }
     return {

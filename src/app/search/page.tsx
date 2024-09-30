@@ -22,10 +22,10 @@ export default function SearchPage() {
     };
   }, [search]);
 
-  const handleSearchCallback = () => {
-    setSearch("");
-    setSearchFilter([]);
-  };
+  // const handleSearchCallback = () => {
+  //   setSearch("");
+  //   setSearchFilter([]);
+  // };
   return (
     <>
       <div className="min-h-screen bg-black flex flex-col justify-center items-center text-neutral-100">

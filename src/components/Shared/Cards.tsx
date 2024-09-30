@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Media } from "@/types/type";
 import { useRouter } from "next/navigation";
-import { FaPlay } from "react-icons/fa";
+
 interface CardsProps {
   defaultCard?: boolean;
   item: Media;
